@@ -1,0 +1,65 @@
+Debugging Node.js Applications: A Beginner's Guide
+Debugging is an essential skill for any developer, and Node.js provides powerful tools to help you identify and fix issues in your applications. 
+This guide, based on the Node.js debugging documentation, will walk you through the basics of debugging in Node.js, including enabling the Inspector, understanding security implications, and using debugging clients like Chrome DevTools.
+
+1. Enabling the Inspector
+Node.js includes a built-in debugging utility called the Inspector API. To enable it, start your Node.js application with the --inspect flag:
+
+bash
+node --inspect yourFile.js
+By default, the Inspector listens on 127.0.0.1:9229. Each process is assigned a unique UUID, and the full debugging URL looks like this:
+
+ws://127.0.0.1:9229/<unique-uuid>
+You can also enable the Inspector by sending a SIGUSR1 signal to a running Node.js process:
+
+bash
+kill -SIGUSR1 <process-id>
+(Note: This method is not available on Windows.)
+
+2. Security Implications
+The Inspector provides full access to the Node.js execution environment, which means exposing it to public networks can be a significant security risk. Here are some key points to consider:
+
+Default Behavior: The Inspector binds to 127.0.0.1 by default, restricting access to local clients.
+
+Public Exposure: Binding the Inspector to a public IP address (e.g., 0.0.0.0) allows external clients to connect, which can lead to unauthorized access.
+
+Best Practices:
+
+Use firewalls and access controls to restrict access.
+
+For remote debugging, use secure methods like SSH tunnels.
+
+3. Debugging Clients
+Several tools can connect to the Node.js Inspector for debugging:
+
+Chrome DevTools: Open chrome://inspect in a Chromium-based browser.
+
+Microsoft Edge: Use edge://inspect for debugging in Edge.
+
+CLI Debugger: Node.js includes a minimal command-line debugger:
+
+bash
+node inspect yourFile.js
+Common commands:
+
+c: Continue execution.
+
+n: Step to the next line.
+
+repl: Evaluate expressions in the current scope.
+
+4. Debugging Workflow
+Here’s a typical debugging workflow:
+
+Start your application with the --inspect flag.
+
+Open your preferred debugging client (e.g., Chrome DevTools).
+
+Set breakpoints to pause execution at specific lines of code.
+
+Inspect variables, evaluate expressions, and step through the code to identify issues.
+
+5. Additional Tips
+Local Applications: Even when bound to 127.0.0.1, local applications can access the Inspector without restrictions.
+
+WebSocket Connections: The Inspector uses WebSocket connections, and Node.js verifies Host headers to prevent DNS rebinding attacks.

@@ -1,0 +1,41 @@
+1. Learn About Buffer, Stream, and Their Advantages
+Buffer:
+
+A temporary storage area in memory.
+
+Used for handling binary data like files, streams, or network packets.
+
+Advantage: Handles data more efficiently by processing chunks rather than the entire file at once.
+
+Stream:
+
+Allows you to work with data piece-by-piece rather than loading it all into memory at once.
+
+Commonly used for reading or writing large files, handling HTTP requests/responses, etc.
+
+Types of Streams:
+
+Readable Streams (e.g., file input)
+
+Writable Streams (e.g., file output)
+
+Duplex (both readable and writable)
+
+Transform (manipulate data during read/write)
+
+Advantages:
+
+Efficient memory usage (especially for large data/files).
+
+Faster data processing, as chunks can be processed as they arrive.
+
+Suitable for real-time data handling.
+
+2. Ways to Read Files Using fs Module
+The fs module provides various methods for file handling:
+
+Synchronous Read (fs.readFileSync)
+
+Asynchronous Read (fs.readFile)
+
+Using Streams (fs.createReadStream)
