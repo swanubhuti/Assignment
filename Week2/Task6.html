@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interval Demo</title> 
+</head>
+<body>
+  <div>
+    <button id="startBtn">Start</button>
+    <button id="stopBtn" disabled>Stop</button>
+  </div>
+  
+  <div id="output"></div>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const output = document.getElementById('output');
+    
+    let counter = 0;
+    let intervalId = null;
+    
+    startBtn.addEventListener('click', function() {
+      // Clear previous output
+      output.innerHTML = '';
+      counter = 0;
+      
+
+      intervalId = setInterval(function() {
+        counter++;
+        output.innerHTML += "Sanvi";
+      }, 1000);
+      
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
+    });
+    
+    stopBtn.addEventListener('click', function() {
+      
+      clearInterval(intervalId);
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>
