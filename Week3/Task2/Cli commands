@@ -1,0 +1,17 @@
+Node CLI (Command Line Interface) allows you to execute Node.js scripts and manage Node projects. NPM CLI is the package manager bundled with Node.js used to install, manage, and publish packages.
+
+Some common Node CLI commands:
+
+node filename.js: Executes a Node.js script.
+
+node: Opens a Node.js REPL (interactive shell).
+
+Some common NPM CLI commands:
+
+npm init: Initializes a new project with a package.json file.
+
+npm install package-name: Installs a package.
+
+npm uninstall package-name: Removes a package.
+
+npm update: Updates installed packages.

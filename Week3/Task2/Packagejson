@@ -1,0 +1,18 @@
+The package.json file is a core file in Node.js projects. It contains metadata about the project and dependencies.
+
+Properties in package.json
+name: The name of your project.
+
+version: The version of the project.
+
+description: A brief description of the project.
+
+scripts: Custom commands for running scripts, e.g., "start": "node index.js".
+
+dependencies: Lists the packages installed (e.g., moment).
+
+devDependencies: Lists packages for development only.
+
+main: Entry point of the project.
+
+author: Name of the project's author.
